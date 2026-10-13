@@ -1,38 +1,47 @@
 # Induction Motor Direct Vector Control
 
-MATLAB/Simulink models for a three-phase induction motor, including direct field-oriented control and an open-loop startup/load-step study. The project explores dq transformations, current and flux regulation, speed control and field weakening.
+MATLAB/Simulink models of a three-phase induction motor using direct field-oriented control. The project studies speed tracking, current and flux regulation, load changes and field weakening.
 
-## Tools used
+## What it does
 
-MATLAB, Simulink and Simscape Electrical Specialized Power Systems blocks.
+- Models the machine using Clarke/Park transformations and dq equations.
+- Regulates current, rotor flux and speed through a controlled inverter drive.
+- Compares startup and load response with the controlled-drive behavior.
+- Explores operation above base speed through field weakening.
 
-## How to run
+## Results
 
-1. Open this folder in MATLAB.
-2. Run `induction_motor_parameters` to initialize the base workspace.
-3. Open `induction_motor_foc.slx` for the controlled drive or `induction_motor_load_step.slx` for the startup/load study.
-4. Review simulation settings and run the model. Inspect its scopes for speed, current, torque and flux response.
+Figures from the [technical report](docs/induction-motor-vector-control-report.pdf).
 
-## Files
+### Speed tracking and reversal
+
+The reported test follows a 100 rad/s speed reference, applies load changes, and reverses the reference to -100 rad/s.
+
+![Induction motor reference and measured speed](docs/results/speed-tracking.png)
+
+### Electromagnetic torque
+
+![Torque response during startup, load changes and speed reversal](docs/results/electromagnetic-torque.png)
+
+## Tools
+
+MATLAB, Simulink and Simscape Electrical Specialized Power Systems.
+
+## Run
+
+```matlab
+induction_motor_parameters
+open_system('induction_motor_foc.slx')
+```
+
+Run the model and inspect the speed, current, torque and flux scopes. Open `induction_motor_load_step.slx` for the startup and load-torque study.
+
+## Project files
 
 | File | Purpose |
 | --- | --- |
-| `induction_motor_parameters.m` | Machine parameters, matrices and controller gains |
-| `induction_motor_foc.slx` | Direct field-oriented control model |
-| `induction_motor_load_step.slx` | Startup and load-torque model |
+| `induction_motor_parameters.m` | Machine parameters and controller gains |
+| `induction_motor_foc.slx` | Direct field-oriented control |
+| `induction_motor_load_step.slx` | Startup and load study |
 
-## Limitations
-
-Requires a MATLAB installation compatible with the referenced Specialized Power Systems libraries. The supplied controller gains are study parameters, not hardware commissioning settings.
-
-## Project context
-
-Prepared from academic project files. Collaborative work remains team work; personal names are omitted from this public copy. Original technical comments and interfaces may be in French. No new license has been assigned.
-
-## Technical report
-
-[Read the original French technical report](docs/induction-motor-vector-control-report.pdf). Personal names and document metadata were removed from this copy. Technical content is preserved and may describe earlier study settings.
-
-## Verification status
-
-Source structure and reference names were inspected. MATLAB startup did not complete in this environment, so MATLAB and Simulink execution could not be verified.
+Developed as a collaborative academic engineering project.
