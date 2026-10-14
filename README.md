@@ -1,8 +1,8 @@
 # Induction Motor Direct Vector Control
 
-MATLAB/Simulink models of a three-phase induction motor using direct field-oriented control. The project studies speed tracking, current and flux regulation, load changes and field weakening.
+I studied direct field-oriented control of a three-phase induction motor in MATLAB/Simulink, including speed tracking, current and flux regulation, load changes and field weakening.
 
-## What it does
+## Main features
 
 - Models the machine using Clarke/Park transformations and dq equations.
 - Regulates current, rotor flux and speed through a controlled inverter drive.
@@ -15,7 +15,7 @@ Figures from the [technical report](docs/induction-motor-vector-control-report.p
 
 ### Speed tracking and reversal
 
-The reported test follows a 100 rad/s speed reference, applies load changes, and reverses the reference to -100 rad/s.
+The simulation follows a 100 rad/s speed reference, applies load changes, and reverses the reference to -100 rad/s.
 
 ![Induction motor reference and measured speed](docs/results/speed-tracking.png)
 
@@ -44,4 +44,4 @@ Run the model and inspect the speed, current, torque and flux scopes. Open `indu
 | `induction_motor_foc.slx` | Direct field-oriented control |
 | `induction_motor_load_step.slx` | Startup and load study |
 
-Developed as a collaborative academic engineering project.
+Academic group project at the National Polytechnic School of Algiers.
